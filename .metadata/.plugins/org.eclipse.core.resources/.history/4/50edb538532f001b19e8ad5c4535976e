@@ -211,16 +211,16 @@ public class LockedMeClass {
 			String filename = "";
 			System.out.println("\nEnter File Name to Delete : ");
 			filename = sc.next();
-			 
-			File file = new File(fileDirectory+filename);
+			filename=fileDirectory+filename;
+			File file = new File(filename);
 			if (file.exists()) {
 				boolean isDeleted = file.delete();
 				if (isDeleted == true) {
-					System.out.println("##Success : "+filename+" File Deleted");
+					System.out.println("File Deleted");
 				}
 
 				else {
-					System.out.println("##Alert : "+filename+" File Not Deleted");
+					System.out.println("File Not Deleted");
 				}
 				System.out.println("For Main Menu Press 'Y' or to continue Press 'N' : ");
 				boolean IsYorN = NavigateMainMethod();
@@ -230,7 +230,7 @@ public class LockedMeClass {
 					deleteFileMethod();
 			} else {
 
-				System.out.println("\n##Alert : File Not Exists(Path : "+fileDirectory+")");
+				System.out.println("\nFile Not Exists(Path : "+fileDirectory+")");
 				System.out.println("\nFor Main Menu Press 'Y' or to continue Press 'N' : ");
 				boolean IsYorN = NavigateMainMethod();
 				if (IsYorN == true) {
@@ -253,12 +253,10 @@ public class LockedMeClass {
 			 
 			System.out.println("\nEnter file name to Search : ");
 			String filename = sc.next();
-			 
-			File f = new File(fileDirectory+filename);
+			File f = new File(filename);
 			if (f.exists())
 
 			{
-				 
 				System.out.println("\n## Success : " + filename + " file is Avilable\n\n");
 				System.out.println("\nFor Main Menu Press 'Y'  to continue Press 'N' : ");
 				boolean IsYorN = NavigateMainMethod();
