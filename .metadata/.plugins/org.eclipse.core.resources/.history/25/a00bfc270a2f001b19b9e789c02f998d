@@ -6,7 +6,7 @@ import java.util.*;
 public class LockedMeClass {
 
 	Scanner sc = new Scanner(System.in);
-	 static String fileDirectory="E:\\MJava\\simplilern Project\\SimpleLockmeFinalRepo\\LockedMe.com\\";
+	 static String fileDirectory="E:\\MJava\\simplilern Project\\LockedMe\\LockedMe.com\\";
 	 /* File Name Return Method
 	String fileNameMethod() {
 		String filename = null;

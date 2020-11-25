@@ -6,7 +6,8 @@ import java.util.*;
 public class LockedMeClass {
 
 	Scanner sc = new Scanner(System.in);
-
+	static String fileDirectory="E:\\MJava\\simplilern Project\\SimpleLockmeFinalRepo\\LockedMe.com\\";
+  /* File Name Return Method
 	String fileNameMethod() {
 		String filename = null;
 		try {
@@ -22,15 +23,17 @@ public class LockedMeClass {
 		}
 
 	}
-
+*/
 	void optionsMethod() {
 		String option = null;
 		try {
 			// System.out.println("==================================================================================");
-			System.out.println("\n$***** Main Menu *****$");
+			System.out.println("\n$*********************$");
+			System.out.println("$***** Main Menu *****$");
+			System.out.println("$*********************$");
 			// System.out.println("\n1.Files List\n2.Add File\n3.Delete File\n4.Search
-			// File\n5.Exist");
-			System.out.println("\n1.Files List\n2.File Operations\n3.Exist");
+			// File\n5.Exit");
+			System.out.println("\n1.Files List\n2.File Operations\n3.Exit");
 			System.out.println("\nAbove options to select which operation do you want :");
 
 			option = sc.next();
@@ -44,36 +47,45 @@ public class LockedMeClass {
 			}
 
 		} catch (Exception e) {
-			System.out.println("Exception at optionsMethod with error Msg : " + e.getMessage());
+			System.out.println("\nException at optionsMethod with error Msg : " + e.getMessage());
+			optionsMethod();
 
 		}
 
 	}
 
+	/*Main Menu Switch Method */
 	void optionsSwitchMethod(int Option) {
-		switch (Option) {
-		/*
-		 * case 0: newFolderMethod(); break;
-		 */
-		case 1:
-			FilesListMethod();
-			break;
-		case 2:
-			System.out.println("*** File Operations ***");
- fileOperationsMethod();
-			
-			break;
-		/*
-		 * case 2: addFileMethod(); break; case 3: deleteFileMethod(); break; case 4:
-		 * searchFileMethod(); break;
-		 */
-		case 3:
-			exitMethod();
-			break;
-		default:
-			System.out.println("No Option Available.Try Again");
+		try {
+			switch (Option) {
+			/*
+			 * case 0: newFolderMethod(); break;
+			 */
+			case 1:
+				FilesListMethod();
+				break;
+			case 2:
+				System.out.println("*** File Operations ***");
+	 fileOperationsMethod();
+				
+				break;
+			/*
+			 * case 2: addFileMethod(); break; case 3: deleteFileMethod(); break; case 4:
+			 * searchFileMethod(); break;
+			 */
+			case 3:
+				exitMethod();
+				break;
+			default:
+				System.out.println("No Option Available.Try Again");
 
+			}
+			
+		} catch (Exception e) {
+			System.out.println("\nException at optionsSwitchMethod with error Msg : " + e.getMessage());
+			optionsMethod();
 		}
+		
 	}
 
 	void fileOperationsMethod() {
@@ -103,7 +115,8 @@ public class LockedMeClass {
 			}
 
 		} catch (Exception e) {
-			System.out.println("Exception at fileOperationsMethod with error Msg : " + e.getMessage());
+			System.out.println("\nException at fileOperationsMethod with error Msg : " + e.getMessage());
+			optionsMethod();
 		}
 	}
 
@@ -132,39 +145,47 @@ public class LockedMeClass {
 			}
 
 		} catch (Exception e) {
-			System.out.println("Exception at newFolderMethod with error Msg : " + e.getMessage());
+			System.out.println("\nException at newFolderMethod with error Msg : " + e.getMessage());
+			optionsMethod();
 		}
 	}
 
 	void addFileMethod() {
 		String isYorN = "N";
 		try {
-
-			String filename = "";
+//For Dynamic File Path
+			/*String filename = "";
 			System.out.println("Enter Path Directory : ");
 			 sc.nextLine();
 
 			 filename = sc.nextLine();
 			 
 
-			System.out.println("Path is :  " + filename);
+			System.out.println("Path is :  " + filename);  */
 
 			System.out.println("Enter File Name : ");
 
-			filename = filename + sc.next();
-
-			File file = new File(filename);
+			String filename =  sc.next();;
+			
+			   
+			File file = new File(fileDirectory+filename);
 
 			if (file.exists()) {
-				System.out.println("File Already Exists.");
-				optionsMethod();
+				System.out.println("\n"+filename+" file already exists.");
+				System.out.println("\nFor Main Menu Press 'Y' or to Add another File Press 'N' : ");
+				boolean IsYorN = NavigateMainMethod();
+				if (IsYorN == true) {
+
+					optionsMethod();
+				} else
+					addFileMethod();
 			} else {
 
 				FileOutputStream FOS = new FileOutputStream(file);
 				FOS.write(8);
 				FOS.flush();
 				FOS.close();
-				System.out.println("File Created at location " + file.getPath());
+				System.out.println("\n"+filename+" file created at location " + fileDirectory);
 
 				System.out.println("\nFor Main Menu Press 'Y' or to Add another File Press 'N' ");
 				boolean IsYorN = NavigateMainMethod();
@@ -177,7 +198,8 @@ public class LockedMeClass {
 			}
 
 		} catch (Exception e) {
-			System.out.println("Exception at addFileMethod with error Msg : " + e.getMessage());
+			System.out.println("\nException at addFileMethod with error Msg : " + e.getMessage());
+			optionsMethod();
 		}
 
 	}
@@ -187,7 +209,7 @@ public class LockedMeClass {
 		try {
 
 			String filename = "";
-			System.out.println("Enter File Name to Delete : ");
+			System.out.println("\nEnter File Name to Delete : ");
 			filename = sc.next();
 
 			File file = new File(filename);
@@ -200,7 +222,7 @@ public class LockedMeClass {
 				else {
 					System.out.println("File Not Deleted");
 				}
-				System.out.println("For Main Menu Press 'Y' other wise Press 'N' ");
+				System.out.println("For Main Menu Press 'Y' other wise Press 'N' : ");
 				boolean IsYorN = NavigateMainMethod();
 				if (IsYorN == true) {
 					optionsMethod();
@@ -208,13 +230,20 @@ public class LockedMeClass {
 					deleteFileMethod();
 			} else {
 
-				System.out.println("File Not Exists.");
-				optionsMethod();
+				System.out.println("\nFile Not Exists.");
+				System.out.println("\nFor Main Menu Press 'Y' other wise Press 'N' : ");
+				boolean IsYorN = NavigateMainMethod();
+				if (IsYorN == true) {
+					optionsMethod();
+				} else
+					deleteFileMethod();
+				 
 
 			}
 
 		} catch (Exception e) {
-			System.out.println("Exception at addFileMethod with error Msg : " + e.getMessage());
+			System.out.println("\nException at addFileMethod with error Msg : " + e.getMessage());
+			optionsMethod();
 		}
 
 	}
@@ -222,20 +251,33 @@ public class LockedMeClass {
 	void searchFileMethod() {
 		try {
 			int count = 0;
-			System.out.println("Enter file name to Search : ");
+			System.out.println("\nEnter file name to Search : ");
 			String filename = sc.next();
 			File f = new File(filename);
 			if (f.exists())
 
 			{
-				System.out.println("## " + filename + " file is Avilable\n\n");
+				System.out.println("\n## Success : " + filename + " file is Avilable\n\n");
+				System.out.println("\nFor Main Menu Press 'Y'  to continue Press 'N' : ");
+				boolean IsYorN = NavigateMainMethod();
+				if (IsYorN == true) {
+					optionsMethod();
+				} else
+					searchFileMethod();
 			} else {
-				System.out.println("## " + filename + " file Not Found.\n\n");
+				System.out.println("\n## Alert : " + filename + " file Not Found.\n\n");
+				System.out.println("\nFor Main Menu Press 'Y'  to continue Press 'N' : ");
+				boolean IsYorN = NavigateMainMethod();
+				if (IsYorN == true) {
+					optionsMethod();
+				} else
+					searchFileMethod();
 			}
-			optionsMethod();
+			 
 
 		} catch (Exception e) {
-			System.out.println("Exception at searchFileMethod with error Msg : " + e.getMessage());
+			System.out.println("\nException at searchFileMethod with error Msg : " + e.getMessage());
+			optionsMethod();
 		}
 
 	}
@@ -282,16 +324,20 @@ public class LockedMeClass {
 				FilesListExitMethod();
 			}
 		} catch (Exception e) {
-			System.out.println("Exception at FilesListExitMethod with error Msg : " + e.getMessage());
+			System.out.println("\nException at FilesListExitMethod with error Msg : " + e.getMessage());
+			optionsMethod();
 		}
 
 	}
 
 	void FilesListMethod() {
 		try {
-			System.out.println("Enter Path to show Avialable files in that Directory : ");
-			sc.nextLine();
+			//Dynamic Path Selection
+			/* System.out.println("Enter Path to show Avialable files in that Directory : ");
+			 sc.nextLine();
 			String fileDirectory = sc.nextLine();
+			*/
+			 
 			if (fileDirectory.isEmpty()) {
 				System.out.println("## Alert: Please enter file Directory.");
 				FilesListMethod();
@@ -305,7 +351,7 @@ public class LockedMeClass {
 					File[] sq = f.listFiles();
 
 					Arrays.sort(sq);
-					System.out.println("\n*** Below are the Available files in the Directory of  " + fileDirectory + " ***\n");
+					System.out.println("\n*** Below are the Available files in the Directory of ==> " + fileDirectory + " <== ***\n");
 					for (File file : sq) {
 						System.out.println(file.getName());
 					}
@@ -330,27 +376,35 @@ public class LockedMeClass {
 			}
 
 		} catch (Exception e) {
-			System.out.println("Exception at FilesListMethod with error Msg : " + e.getMessage());
-
+			System.out.println("\nException at FilesListMethod with error Msg : " + e.getMessage());
+			optionsMethod();
 		}
 
 	}
 
 	void exitMethod() {
-		System.out.println("Are you sure want to exist Press 'Y'. otherwise press 'N' to Main menu");
-		String YorN = sc.next();
+		try {
+			System.out.println("\nAre you sure want to exit Press 'Y'. otherwise press 'N' to Main menu");
+			String YorN = sc.next();
 
-		if (YorN.toLowerCase().equals("y")) {
-			System.out.println("$$**** THANK YOU ****$$");
-			return;
-		} else if (YorN.toLowerCase().equals("n")) {
+			if (YorN.toLowerCase().equals("y")) {
+				System.out.println("\n$$*******************$$");
+				System.out.println("$$**** THANK YOU ****$$");
+				System.out.println("$$*******************$$");
+				return;
+			} else if (YorN.toLowerCase().equals("n")) {
 
+				optionsMethod();
+
+			} else {
+				System.out.println("## Alert : Invalid Option.Try again");
+				exitMethod();
+			}
+		} catch (Exception e) {
+			System.out.println("\nException at exitMethod with error Msg : " + e.getMessage());
 			optionsMethod();
-
-		} else {
-			System.out.println("## Alert : Invalid Option.Try again");
-			exitMethod();
 		}
+		
 
 	}
 
@@ -360,8 +414,9 @@ public class LockedMeClass {
 		System.out.println("$#########################################$");
 		System.out.println("$######## Welcome to LockedMe.com ########$");
 		System.out.println("$#########################################$\n");
+		LockedMeClass FHD=null;
 		try {
-			LockedMeClass FHD = new LockedMeClass();
+			  FHD = new LockedMeClass();
 			// FHD.FilesListMethod();
 			FHD.optionsMethod();
 
@@ -404,7 +459,8 @@ public class LockedMeClass {
 		}
 
 		catch (Exception e) {
-			System.out.println("Exception at mainMethod with error Msg : " + e.getMessage());
+			System.out.println("\nException at mainMethod with error Msg : " + e.getMessage());
+			FHD.optionsMethod();
 		}
 
 	}

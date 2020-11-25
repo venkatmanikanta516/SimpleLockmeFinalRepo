@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="ome to LockedMe.com ########$"/>
+		<item key="selection" value="fileDirectory"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="fileDirectory"/>
+			<item value="exist"/>
 			<item value="ome to LockedMe.com ########$"/>
 			<item value="fileNameMethod"/>
 			<item value="Are you sure want to exist Press"/>
@@ -15,14 +17,12 @@
 			<item value="$$**** THANK YOU ****$$"/>
 			<item value="File Not Exists."/>
 			<item value="file already exists"/>
-			<item value="fileDirectory"/>
 			<item value="Enter Path Directory :"/>
 			<item value="$***** Main Menu *****$"/>
 			<item value=" Welcome to LockedMe.com"/>
 			<item value="Enter Path to show Avialable files in that Directory"/>
 			<item value="Exception at addFileMethod with error Msg"/>
 			<item value="Patth is"/>
-			<item value="optionsSwitchMethod"/>
 		</list>
 		<list key="replacehistory">
 		</list>
