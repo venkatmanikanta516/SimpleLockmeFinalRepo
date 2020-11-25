@@ -187,7 +187,7 @@ public class LockedMeClass {
 				FOS.close();
 				System.out.println("\n"+filename+" file created at location " + fileDirectory);
 
-				System.out.println("\nFor Main Menu Press 'Y' or to Add another File Press 'N' :");
+				System.out.println("\nFor Main Menu Press 'Y' or to Add another File Press 'N' ");
 				boolean IsYorN = NavigateMainMethod();
 				if (IsYorN == true) {
 
@@ -230,8 +230,8 @@ public class LockedMeClass {
 					deleteFileMethod();
 			} else {
 
-				System.out.println("\nFile Not Exists(Path : "+fileDirectory+")");
-				System.out.println("\nFor Main Menu Press 'Y' or to continue Press 'N' : ");
+				System.out.println("\nFile Not Exists(Path : "+fileDirectory+" ).");
+				System.out.println("\nFor Main Menu Press 'Y' other wise Press 'N' : ");
 				boolean IsYorN = NavigateMainMethod();
 				if (IsYorN == true) {
 					optionsMethod();

@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="fileDirectory"/>
+		<item key="selection" value=" Invalid File Path.Check Once and Try Again."/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value=" Invalid File Path.Check Once and Try Again."/>
 			<item value="fileDirectory"/>
 			<item value="exist"/>
 			<item value="ome to LockedMe.com ########$"/>
@@ -22,7 +23,6 @@
 			<item value=" Welcome to LockedMe.com"/>
 			<item value="Enter Path to show Avialable files in that Directory"/>
 			<item value="Exception at addFileMethod with error Msg"/>
-			<item value="Patth is"/>
 		</list>
 		<list key="replacehistory">
 		</list>
