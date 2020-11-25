@@ -7,6 +7,7 @@ public class LockedMeClass {
 
 	Scanner sc = new Scanner(System.in);
 	  static String fileDirectory="E:\\MJava\\simplilern Project\\SimpleLockmeFinalRepo\\LockedMe.com\\";
+	 
 	 /* File Name Return Method
 	String fileNameMethod() {
 		String filename = null;
@@ -33,7 +34,7 @@ public class LockedMeClass {
 			System.out.println("$*********************$");
 			// System.out.println("\n1.Files List\n2.Add File\n3.Delete File\n4.Search
 			// File\n5.Exist");
-			System.out.println("\n1.Files List\n2.File Operations\n3.Exit");
+			System.out.println("\n1.Files List\n2.File Operations\n3.Exist");
 			System.out.println("\nAbove options to select which operation do you want :");
 
 			option = sc.next();
@@ -386,7 +387,7 @@ public class LockedMeClass {
 
 	void exitMethod() {
 		try {
-			System.out.println("\nAre you sure want to exit Press 'Y'. otherwise press 'N' to Main menu");
+			System.out.println("\nAre you sure want to exist Press 'Y'. otherwise press 'N' to Main menu");
 			String YorN = sc.next();
 
 			if (YorN.toLowerCase().equals("y")) {
